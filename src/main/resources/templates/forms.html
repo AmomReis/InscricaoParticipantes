@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Inscrição - Meu App, Meu Negócio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fef6f1, #dcecf9);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-6 sm:p-8" data-aos="zoom-in">
+    <div class="text-center mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-[#002b7f] mb-1">Meu App, Meu Negócio</h1>
+        <p class="text-[#f27f1b] font-medium text-lg">Projeto de Extensão - UEPA Castanhal</p>
+    </div>
+
+    <!-- Form com todos os campos já visíveis -->
+    <form action="/inscricao" method="post" class="space-y-4 sm:space-y-5">
+        <input type="text" name="nome" placeholder="Nome completo" required
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <input type="text" name="cpf" placeholder="CPF" required
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <input type="email" name="email" placeholder="Email" required
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <input type="text" name="fone" placeholder="Telefone" required
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <input type="text" name="setor" placeholder="Setor de atuação"
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <input type="text" name="nomedaEmpresa" placeholder="Nome da empresa (opcional)"
+               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
+
+        <button type="submit"
+                class="w-full bg-gradient-to-r from-[#002b7f] to-[#0044cc] text-white text-lg font-semibold py-4 rounded-xl shadow-md hover:-translate-y-1 transition-all duration-300">
+            Inscrever-se
+        </button>
+    </form>
+</div>
+
+<script>
+    AOS.init({
+        duration: 600,
+        once: true
+    });
+</script>
+</body>
+</html>
