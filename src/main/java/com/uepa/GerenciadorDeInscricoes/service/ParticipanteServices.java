@@ -4,6 +4,7 @@ import com.uepa.GerenciadorDeInscricoes.model.Participante;
 import com.uepa.GerenciadorDeInscricoes.repository.ParticipanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class ParticipanteServices {
@@ -11,7 +12,14 @@ public class ParticipanteServices {
     @Autowired
     private ParticipanteRepository repository;
 
-    public void salvarParticipante(Participante p) {
-        repository.save(p);
+    public String salvarParticipante(Participante p) {
+        if (repository.count() >= 30) {
+            p.setEmEspera(true);
+            repository.save(p);
+            return "espera";
+        } else {
+            repository.save(p);
+            return "sucesso";
+        }
     }
 }

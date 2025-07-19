@@ -14,9 +14,6 @@ public class ParticipanteController {
     @Autowired
     private ParticipanteServices service;
 
-    @Autowired
-    private ParticipanteRepository repository;
-
     // Exibe o formulário
     @GetMapping("/inscricao")
     public String mostrarFormulario(Model model) {
@@ -26,15 +23,15 @@ public class ParticipanteController {
 
     // Processa os dados enviados
     @PostMapping("/inscricao")
-    public String salvarParticipante(@ModelAttribute Participante obj, Model model) {
-        if (repository.count() >= 30) {
-            obj.setEmEspera(true);
-            service.salvarParticipante(obj);
+    public String salvarParticipante(@ModelAttribute Participante p, Model model) {
+        String resultado = service.salvarParticipante(p);
+
+        if (resultado.equals("espera")) {
             model.addAttribute("mensagem", "Você foi colocado na lista de espera.");
             return "warningPage";
+        } else {
+            model.addAttribute("mensagem", "Inscrição realizada com sucesso!");
+            return "successPage";
         }
-        service.salvarParticipante(obj);
-        model.addAttribute("mensagem", "Inscrição realizada com sucesso!");
-        return "sucessPage";
     }
 }
