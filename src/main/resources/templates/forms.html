@@ -35,16 +35,28 @@
         <input type="text" name="nome" placeholder="Nome completo" required
                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
 
-        <input type="text" name="cpf" placeholder="CPF" required
-               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
-
+        <input
+                type="text"
+                name="cpf"
+                id="cpf"
+                placeholder="CPF"
+                required
+                maxlength="14"
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"
+        />
         <input type="email" name="email" placeholder="Email" required
                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
 
-        <input type="text" name="fone" placeholder="Telefone" required
-               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
-
-        <input type="text" name="setor" placeholder="Setor de atuação"
+        <input
+                type="text"
+                name="fone"
+                id="telefone"
+                placeholder="Celular(WhatsApp)"
+                required
+                maxlength="15"
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"
+        />
+        <input type="text" name="setor" placeholder="Setor de atuação (opcional)"
                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#002b7f] focus:outline-none text-base"/>
 
         <input type="text" name="nomedaEmpresa" placeholder="Nome da empresa (opcional)"
@@ -61,6 +73,72 @@
     AOS.init({
         duration: 600,
         once: true
+    });
+    const cpfInput = document.getElementById('cpf');
+    const telefoneInput = document.getElementById('telefone');
+    const form = document.getElementById('form-inscricao');
+
+    // Máscara de CPF: 000.000.000-00
+    cpfInput.addEventListener('input', function () {
+        let cpf = this.value.replace(/\D/g, '');
+        if (cpf.length > 3) cpf = cpf.replace(/^(\d{3})(\d)/, '$1.$2');
+        if (cpf.length > 6) cpf = cpf.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+        if (cpf.length > 9) cpf = cpf.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+        this.value = cpf;
+    });
+
+    // Máscara de celular: (00) 00000-0000
+    telefoneInput.addEventListener('input', function () {
+        let tel = this.value.replace(/\D/g, '');
+        if (tel.length > 2) tel = tel.replace(/^(\d{2})(\d)/, '($1) $2');
+        if (tel.length > 7) tel = tel.replace(/(\d{5})(\d)/, '$1-$2');
+        this.value = tel;
+    });
+
+    // Função para validar CPF (algoritmo oficial)
+    function validarCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+        let soma = 0;
+        for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+        let dig1 = (soma * 10) % 11;
+        if (dig1 === 10 || dig1 === 11) dig1 = 0;
+        if (dig1 !== parseInt(cpf.charAt(9))) return false;
+
+        soma = 0;
+        for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+        let dig2 = (soma * 10) % 11;
+        if (dig2 === 10 || dig2 === 11) dig2 = 0;
+        return dig2 === parseInt(cpf.charAt(10));
+    }
+
+    // Função para validar celular com DDD (mínimo 10 dígitos)
+    function validarCelular(telefone) {
+        telefone = telefone.replace(/\D/g, '');
+        return telefone.length >= 10 && telefone.length <= 11;
+    }
+
+    // Antes de enviar: validar e limpar
+    form.addEventListener('submit', function (e) {
+        const cpf = cpfInput.value.replace(/\D/g, '');
+        const telefone = telefoneInput.value.replace(/\D/g, '');
+
+        if (!validarCPF(cpf)) {
+            alert('CPF inválido');
+            e.preventDefault();
+            return;
+        }
+
+        if (!validarCelular(telefone)) {
+            alert('Número de celular inválido');
+            e.preventDefault();
+            return;
+        }
+
+        // Atualiza valores dos inputs com versão limpa
+        cpfInput.value = cpf;
+        telefoneInput.value = telefone;
     });
 </script>
 </body>
