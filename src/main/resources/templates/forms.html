@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,10 +22,12 @@
 
 <!-- Navbar -->
 <header>
-<div class="logo">Meu App, Meu Negócio</div>
-    <nav>
+    <div class="logo">Meu App, Meu Negócio</div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav id="nav-menu">
         <a href="/">Home</a>
-        <a href="/#sobre">Sobre</a>
+        <a href="#sobre">Sobre</a>
+        <a href="/inscricao">Inscrever-se</a>
     </nav>
 </header>
 

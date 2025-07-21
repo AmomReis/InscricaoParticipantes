@@ -1,49 +1,68 @@
+/* Fonte moderna */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header {
-    background: #004080;
+    background: #d68248;
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
     align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
 }
 
 nav a {
     color: white;
-    margin-left: 1rem;
     text-decoration: none;
+    font-weight: 600;
 }
 
-.titulo {
-    font-size: 2.3rem;
-    font-weight: bold;
+/* Ícone de menu hamburguer */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
-.subtitulo {
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-}
+/* Menu oculto por padrão em mobile */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #d68248;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-.botao-inscrever {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 12px 24px;
-  background-color: #004080; /* azul escuro */
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
+    nav.ativo {
+        display: flex;
+    }
 
-.botao-inscrever:hover {
-  background-color: #0066cc; /* azul mais claro ao passar o mouse */
+    .hamburger {
+        display: block;
+    }
 }
 
 section {
@@ -54,19 +73,72 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text: 200;
+    flex-wrap: wrap;
+}
+
+.intro {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 1rem;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+.botao-inscrever {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    background-color: #d68248;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.botao-inscrever:hover {
+    background-color: #bd6b34;
 }
 
 .imagem-inicial img {
-    max-width: 600px;
+    max-width: 100%;
     height: auto;
+    flex: 1;
+    min-width: 300px;
 }
 
-.imagens img {
-    max-width: 200px;
-    margin-right: 1rem;
+/* Responsividade extra */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #d68248;
+        width: 100vw; /* ocupa toda a largura visível da tela */
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    nav.ativo {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
-html {
-  scroll-behavior: smooth;
-}

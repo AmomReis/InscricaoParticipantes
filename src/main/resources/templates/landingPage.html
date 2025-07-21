@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>MeuApp MeuNegócio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/landingPage.css">
 </head>
 <body>
-<!-- Navbar -->
+
 <header>
     <div class="logo">Meu App, Meu Negócio</div>
-    <nav>
+
+    <!-- Ícone hambúrguer -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <nav id="nav-menu">
         <a href="/">Home</a>
-        <a href="#sobre">Sobre </a>
+        <a href="#sobre">Sobre</a>
         <a href="/inscricao">Inscrever-se</a>
     </nav>
 </header>
 
-<!-- Seção inicial -->
 <section id="home">
     <div class="intro">
+
         <h1 class="titulo">Curso de criação de Apps para Microempreendedores</h1>
         <p class="subtitulo">
             Simples, prático e sem precisar saber programar.<br>
             Aprenda a inovar com o MIT App Inventor.
         </p>
-
         <a href="/inscricao" class="botao-inscrever">Inscreva-se agora</a>
     </div>
     <div class="imagem-inicial">
@@ -32,15 +38,20 @@
     </div>
 </section>
 
-<!-- Seção sobre -->
 <section id="sobre">
     <h2>Sobre o Curso</h2>
-    <p>O curso está sendo ofertado apartir do projeto de extensão com alunos do curso de engenharia de software e engenharia de produção com o intuito de ajudar os microenpreendedores a gerenciar seus negocios com mais praticidade e inovação.</p>
-    <!--div class="imagens">
-        <img src="/img/exemplo1.jpg" alt="Exemplo 1">
-        <img src="/img/exemplo2.jpg" alt="Exemplo 2">
-    </div-->
+    <p>
+        O curso está sendo ofertado a partir do projeto de extensão com alunos do curso de Engenharia de Software
+        e Engenharia de Produção com o intuito de ajudar os microempreendedores a gerenciar seus negócios com mais praticidade e inovação.
+    </p>
 </section>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        menu.classList.toggle("ativo");
+    }
+</script>
 
 </body>
 </html>

@@ -1,21 +1,90 @@
+/* Fonte moderna */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #fef6f1, #dcecf9);
+    margin: 0;
+    padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* HEADER + MENU */
 header {
-    background: #004080;
+    background: #d68248; /* cor principal atualizada */
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
     align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
 }
 
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Ícone do menu hamburguer */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Estilo para telas menores */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #d68248;
+        width: 100vw;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    nav.ativo {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* SEÇÃO */
 section {
     padding: 2rem;
+    max-width: 600px;
+    margin: auto;
 }
 
+h2 {
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* FORMULÁRIO */
 .form-input {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -27,6 +96,39 @@ section {
 }
 
 .form-input:focus {
-    border-color: #002b7f;
-    box-shadow: 0 0 0 2px #002b7f33;
+    border-color: #d68248;
+    box-shadow: 0 0 0 2px #d6824833;
+}
+
+.botao-inscrever {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #d68248;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.botao-inscrever:hover {
+    background-color: #bd6b34;
+}
+
+/* RESPONSIVIDADE EXTRA */
+@media (max-width: 500px) {
+    section {
+        padding: 1.5rem;
+    }
+
+    .form-input {
+        font-size: 0.95rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
 }

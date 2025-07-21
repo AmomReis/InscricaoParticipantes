@@ -10,7 +10,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- AOS (Animate On Scroll) -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -21,10 +21,10 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center px-4 sm:px-6 py-10 sm:py-20">
 
-<div class="w-full max-w-[95%] sm:max-w-md md:max-w-xl bg-white rounded-3xl shadow-2xl p-8 text-center space-y-6" data-aos="zoom-in">
-    <div class="text-red-600 text-6xl mb-2 animate-pulse">&#9888;</div>
+<div class="w-full max-w-[95%] sm:max-w-lg md:max-w-xl bg-white rounded-3xl shadow-2xl p-6 sm:p-10 text-center space-y-6" data-aos="zoom-in">
+    <div class="text-red-600 text-5xl sm:text-6xl md:text-7xl animate-pulse">&#9888;</div>
     <h2 class="text-2xl sm:text-3xl font-bold text-gray-800" th:text="${mensagem}">Vagas Esgotadas</h2>
     <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
         As 30 vagas do minicurso já foram preenchidas.<br>
@@ -32,16 +32,13 @@
         Entraremos em contato caso surjam vagas disponíveis.
     </p>
     <a href="/inscricao"
-       class="inline-block w-full sm:w-auto bg-gradient-to-r from-[#002b7f] to-[#0044cc] text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300">
+       class="inline-block w-full sm:w-auto bg-gradient-to-r from-[#002b7f] to-[#0044cc] text-white text-base sm:text-lg font-semibold px-6 py-4 rounded-xl shadow-md hover:-translate-y-1 transition-all duration-300">
         Voltar para inscrição
     </a>
 </div>
 
 <script>
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+    AOS.init({ duration: 800, once: true });
 </script>
 </body>
 </html>
