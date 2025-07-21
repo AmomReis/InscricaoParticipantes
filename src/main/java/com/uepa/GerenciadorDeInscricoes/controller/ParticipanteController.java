@@ -14,6 +14,12 @@ public class ParticipanteController {
     @Autowired
     private ParticipanteServices service;
 
+    // Página inicial (landing page)
+    @GetMapping("/")
+    public String exibirLandingPage() {
+        return "landingPage";
+    }
+
     // Exibe o formulário
     @GetMapping("/inscricao")
     public String mostrarFormulario(Model model) {
