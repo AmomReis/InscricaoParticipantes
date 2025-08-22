@@ -1,7 +1,6 @@
 package com.uepa.GerenciadorDeInscricoes.controller;
 
 import com.uepa.GerenciadorDeInscricoes.model.Participante;
-import com.uepa.GerenciadorDeInscricoes.repository.ParticipanteRepository;
 import com.uepa.GerenciadorDeInscricoes.service.ParticipanteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
