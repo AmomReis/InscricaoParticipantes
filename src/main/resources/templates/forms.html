@@ -26,8 +26,6 @@
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav id="nav-menu">
         <a href="/">Home</a>
-        <a href="#sobre">Sobre</a>
-        <a href="/inscricao">Inscrever-se</a>
     </nav>
 </header>
 
@@ -127,6 +125,12 @@
         cpfInput.value = cpf;
         telefoneInput.value = telefone;
     });
+
+    function toggleMenu() {
+  const nav = document.getElementById("nav-menu");
+  nav.classList.toggle("ativo");
+}
+
 </script>
 </body>
 </html>
