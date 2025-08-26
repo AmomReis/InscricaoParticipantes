@@ -42,27 +42,22 @@ nav a {
     cursor: pointer;
 }
 
-/* Menu oculto por padrão em mobile */
 @media (max-width: 768px) {
-    nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #d68248;
-        width: 100vw; /* ocupa toda a largura visível da tela */
-        padding: 1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 10;
+    .intro {
+        align-items: center;   /* centraliza horizontalmente */
+        text-align: center;    /* centraliza o texto */
+        padding-right: 0;      /* remove o espaço lateral */
+        width: 100%;           /* ocupa a largura inteira */
     }
 
-    nav.ativo {
-        display: flex;
+    .botao-inscrever {
+        width: 100%;           /* botão ocupa toda a largura */
+        max-width: 300px;      /* mas não fica exagerado */
+        text-align: center;
     }
 
-    .hamburger {
-        display: block;
+    .imagem-inicial {
+        justify-content: center;
     }
 }
 
