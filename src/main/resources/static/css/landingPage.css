@@ -44,22 +44,27 @@ nav a {
 
 @media (max-width: 768px) {
     .intro {
+        width: 100%;           /* ocupa toda a largura disponível */
+        display: flex;
+        flex-direction: column;
         align-items: center;   /* centraliza horizontalmente */
-        text-align: center;    /* centraliza o texto */
-        padding-right: 0;      /* remove o espaço lateral */
-        width: 100%;           /* ocupa a largura inteira */
+        text-align: center;    /* centraliza textos */
+        padding: 0;            /* remove espaçamento lateral */
+        margin: 0 auto;        /* garante centralização */
     }
 
     .botao-inscrever {
-        width: 100%;           /* botão ocupa toda a largura */
-        max-width: 300px;      /* mas não fica exagerado */
+        width: 90%;            /* botão quase cheio da tela */
+        max-width: 320px;      /* limite para não ficar gigante */
         text-align: center;
     }
 
     .imagem-inicial {
         justify-content: center;
+        width: 100%;           /* imagem também centralizada */
     }
 }
+
 
 section {
     padding: 2rem;
