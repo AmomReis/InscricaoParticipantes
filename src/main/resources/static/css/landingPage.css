@@ -9,7 +9,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* HEADER */
 header {
     background: #d68248;
     color: white;
@@ -43,7 +42,7 @@ nav a {
     cursor: pointer;
 }
 
-/* Menu oculto em mobile */
+/* Menu oculto por padrão em mobile */
 @media (max-width: 768px) {
     nav {
         display: none;
@@ -52,7 +51,7 @@ nav a {
         top: 100%;
         left: 0;
         background: #d68248;
-        width: 100vw;
+        width: 100vw; /* ocupa toda a largura visível da tela */
         padding: 1rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         z-index: 10;
@@ -67,12 +66,10 @@ nav a {
     }
 }
 
-/* SECTIONS */
 section {
     padding: 2rem;
 }
 
-/* HOME: imagem à esquerda, texto à direita */
 #home {
     display: flex;
     justify-content: space-between;
@@ -81,9 +78,14 @@ section {
     gap: 20px;
 }
 
-.intro, .imagem-inicial {
+.intro {
     flex: 1;
     min-width: 300px;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* desktop: conteúdo alinhado à esquerda */
+    text-align: left;
 }
 
 .titulo {
@@ -115,85 +117,27 @@ section {
     background-color: #bd6b34;
 }
 
+.imagem-inicial {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
 .imagem-inicial img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
-/* RESPONSIVIDADE PARA HOME */
+/* Responsividade extra */
 @media (max-width: 768px) {
-    #home {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .intro {
-        padding-right: 0;
+        align-items: center;  /* centraliza horizontalmente */
+        text-align: center;   /* centraliza textos */
+        padding-right: 0;     /* remove espaço lateral */
     }
 
-    .imagem-inicial img {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
-
-/* FOOTER */
-footer {
-    background: #d68248;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-}
-
-/* container principal: logo à esquerda, infos à direita */
-.container_rodape {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* logo esquerda, info direita */
-    gap: 20px;
-    flex-wrap: wrap;
-    border: none;
-    padding: 5px 10px;
-}
-
-/* Ajuste da logo */
-.container_rodape .logo_uepa img {
-    max-height: 180px; /* ajusta tamanho da imagem */
-    width: auto;
-}
-
-/* Ajuste do texto */
-.container_rodape .informacoes {
-    text-align: right; /* texto alinhado à direita */
-}
-
-/* linha separadora */
-footer hr {
-    border: none;
-    border-top: 1px solid #fff;
-}
-
-/* direitos autorais */
-.copy {
-    border: none;
-    font-size: 0.8rem; /* deixa menor e mais discreto */
-    text-align: center;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    .container_rodape {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .informacoes {
-        margin-top: 10px;
-    }
-
-    .copy {
-        font-size: 0.75rem;
-        padding: 5px 10px;
+    .imagem-inicial {
+        justify-content: center;
     }
 }
